@@ -6,6 +6,7 @@ import { EmpleadosToken } from './components/empleados-token/empleados-token';
 import { AlumnosToken } from './components/alumnos-token/alumnos-token';
 import { FindJugador } from './components/find-jugador/find-jugador';
 import { DetallesJugador } from './components/detalles-jugador/detalles-jugador';
+import { SubirFichero } from './components/subir-fichero/subir-fichero';
 
 export const routes: Routes = [
     {path:"", component:HomeComponent},
@@ -14,5 +15,6 @@ export const routes: Routes = [
     {path:"empleados", component:EmpleadosToken},
     {path:"alumnos", component:AlumnosToken},
     {path:"find/:nombre", component:FindJugador},
-    {path:"detalles/:idjugador", component:DetallesJugador}
+    {path:"detalles/:idjugador", component:DetallesJugador},
+    {path:"ficheros", component:SubirFichero}
 ];

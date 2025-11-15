@@ -13,6 +13,7 @@ import { ServiceEmpleados } from '../../services/service.empleados';
 export class LoginComponent implements OnInit{
 
   public mensaje!:string;
+  public mensaje2!:string;
 
   @ViewChild("cajanom") cajaUsuario!:ElementRef;
   @ViewChild("cajapass") cajaPassword!:ElementRef;
@@ -44,7 +45,7 @@ export class LoginComponent implements OnInit{
 
     this._service2.loginUser(usuario).subscribe(response=>{
       this._service.token=response.response;
-      this.mensaje="Usuario correcto"
+      this.mensaje2="Usuario correcto"
     })
   }
 }

@@ -28,4 +28,17 @@ export class ServiceEquipos{
 
         return this._http.get<Array<Jugador>>(url);
     }
+
+    findJugadores(nombre:string):Observable<Array<Jugador>>{
+        let request="api/jugadores/buscarjugadores/"+nombre;
+        let url=environment.urlApiApuestas+request;
+
+        return this._http.get<Array<Jugador>>(url);
+    }
+
+    detallesJugador(idjugador:number):Observable<Jugador>{
+        let request="api/jugadores/"+idjugador;
+        let url=environment.urlApiApuestas+request;
+        return this._http.get<Jugador>(url);
+    }
 }

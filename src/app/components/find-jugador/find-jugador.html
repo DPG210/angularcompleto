@@ -1,1 +1,41 @@
-<p>find-jugador works!</p>
+<div class="container mt-4">
+
+    @if (jugadores) {
+
+    @if (jugadores.length > 0) {
+
+    <h3>Jugadores Encontrados</h3>
+    <hr>
+    <div class="row row-cols-2 row-cols-md-4 g-3">
+        @for (jugador of jugadores; track jugador.idJugador) {
+        <div class="col">
+            <div class="card h-100 text-center shadow-sm">
+                <img [src]="jugador.imagen" class="card-img-top" [alt]="jugador.nombre"
+                    style="height: 180px; object-fit: cover;">
+                <div class="card-body">
+                    <h6 class="card-title">{{ jugador.nombre }}</h6>
+                    <p class="card-text"><small>{{ jugador.posicion }}</small></p><br>
+                    <a class="btn btn-info" [routerLink]="['/detalles', jugador.idJugador]">Detalles</a>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+
+    } @else {
+
+    <div class="alert alert-warning">
+        No se encontraron jugadores con ese nombre.
+    </div>
+    }
+
+    } @else {
+
+    <div class="d-flex justify-content-center p-5">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Cargando...</span>
+        </div>
+    </div>
+    }
+
+</div>

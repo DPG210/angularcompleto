@@ -25,6 +25,9 @@
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/empleados']">Empleados</a>
                 </li>
+                 <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/ficheros']">Ficheros</a>
+                </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarEquiposDropdown" role="button"
@@ -39,6 +42,12 @@
                         }
                     </ul>
                 </li>
+                <form class="d-flex" role="search">
+
+                <input class="form-control me-2" type="search" placeholder="Buscar jugador..." aria-label="Buscar"
+                    #cajanombre name="cajanombre">
+                <button class="btn btn-outline-light" type="submit" (click)="buscarJugador()">Buscar</button>
+            </form>
             </ul>
 
             <!-- <form class="d-flex" role="search">

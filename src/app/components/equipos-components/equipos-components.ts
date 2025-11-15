@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Params, ActivatedRoute } from '@angular/router';
+import { Params, ActivatedRoute, RouterModule } from '@angular/router';
 import { ServiceEquipos } from '../../services/service.equipos';
 import { DatosEquipos } from '../../models/DatosEquipos';
 import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-equipos-components',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './equipos-components.html',
   styleUrl: './equipos-components.css',
 })
@@ -48,4 +48,5 @@ export class EquiposComponents implements OnInit{
       
     })
   }
+  
 }

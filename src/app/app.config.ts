@@ -6,6 +6,7 @@ import { ServiceEquipos } from './services/service.equipos';
 import { routes } from './app.routes';
 import { ServiceAlumnos } from './services/service.alumnos';
 import { ServiceEmpleados } from './services/service.empleados';
+import { ServiceFicheros } from './services/service.ficheros';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     ServiceEquipos,
     ServiceAlumnos,
-    ServiceEmpleados
+    ServiceEmpleados,
+    ServiceFicheros
   ]
 };
