@@ -1,0 +1,100 @@
+<div class="container mt-4">
+
+    <!-- Bloque de carga (sin cambios) -->
+    @if (cargando) {
+    <div class="d-flex justify-content-center p-5">
+        <div>
+            <!-- OJO: Esta ruta de imagen puede fallar si estás en
+                 una ruta como /equipos/1. Deberías usar /assets/...
+                 con la barra inicial para que sea una ruta absoluta. -->
+            <img src="./../../../../assets/images/mifoto.jfif">
+            <span class="visually-hidden">Cargando...</span>
+        </div>
+    </div>
+    }
+
+    <!-- Bloque de contenido (con el z-index corregido) -->
+    @if (!cargando && datosEquipo) {
+
+    <div class="row g-4">
+
+        <div class="col-lg-4">
+
+            <h3>Equipo</h3>
+
+            <!-- 
+              ===============================================================
+              AQUÍ ESTÁ LA CORRECCIÓN:
+              Se ha añadido 'z-index: 1;' al 'style' para forzar
+              esta tarjeta a estar *debajo* del navbar (que tiene z-index: 1020).
+              ===============================================================
+            -->
+            <div class="card shadow-sm sticky-top" style="top: 80px; z-index: 1;">
+                <img [src]="datosEquipo.equipo.imagen" class="card-img-top" [alt]="datosEquipo.equipo.nombre">
+
+                <div class="card-body">
+                    <h4 class="card-title">{{ datosEquipo.equipo.nombre }}</h4>
+                    <p class="card-text">{{ datosEquipo.equipo.descripcion }}</p>
+                </div>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <strong>Champions:</strong>
+                        <span>{{ datosEquipo.equipo.champions }}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <a [href]="datosEquipo.equipo.web" class="btn btn-outline-primary w-100" target="_blank"
+                            rel="noopener noreferrer">
+                            Sitio Web
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Columna de jugadores (sin cambios) -->
+        <div class="col-lg-8">
+
+            <h3>Plantilla</h3>
+
+            @if (datosEquipo.jugadores && datosEquipo.jugadores.length > 0) {
+
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+
+                <!-- 
+                  NOTA: Es mejor usar 'track jugador.idJugador'
+                  que 'track jugador' si tienes un ID único. 
+                  Mejora el rendimiento.
+                -->
+                @for (jugador of datosEquipo.jugadores; track jugador.idJugador) {
+
+                <div class="col">
+                    <div class="card h-100 shadow-sm text-center">
+                        <img [src]="jugador.imagen" class="card-img-top" [alt]="jugador.nombre"
+                            style="height: 180px; object-fit: cover;">
+
+                        <div class="card-body p-2">
+                            <h6 class="card-title mb-0">
+                                {{ jugador.nombre }}
+                            </h6>
+                            <small class="text-muted">{{ jugador.posicion }}</small>
+                        </div>
+                    </div>
+                </div>
+
+                } <!-- Fin @for -->
+            </div>
+
+            } @else {
+            <div class="alert alert-info">
+                No se encontraron jugadores para este equipo.
+            </div>
+            } <!-- Fin @if/else jugadores -->
+
+        </div> <!-- Fin .col-lg-8 -->
+
+    </div> <!-- Fin .row -->
+
+    } <!-- Fin @if !cargando -->
+
+</div> <!-- Fin .container -->

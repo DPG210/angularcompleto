@@ -1,0 +1,29 @@
+<div>
+    <div>
+        <h1>Login Alumnos</h1>
+        <form #loginForm="ngForm" >
+        <label for="">Usuaio</label><br>
+        <input type="text" #cajanom name="cajanom"><br>
+        <label for="">Password</label><br>
+        <input type="text" #cajapass name="cajapass"><br>
+        <button (click)="loginUsuarioA()">Iniciar Sesion</button>
+    </form>
+    @if(mensaje){
+        <h1>{{mensaje}}</h1>
+        }
+    </div>
+    <div>
+        <h1>Login empleados</h1>
+        <form #loginForm="ngForm" >
+        <label for="">Usuaio</label><br>
+        <input type="text" #cajanom name="cajanom"><br>
+        <label for="">Password</label><br>
+        <input type="text" #cajapass name="cajapass"><br>
+        <button (click)="loginUsuarioE()">Iniciar Sesion</button>
+    </form>
+    @if(mensaje){
+        <h1>{{mensaje}}</h1>
+        }
+    </div>
+    
+</div>
