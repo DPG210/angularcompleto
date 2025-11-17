@@ -1,0 +1,33 @@
+<div>
+    <h1>Departamentos</h1>
+    @if(departamentos){
+    <table>
+        <thead>
+            <tr>
+                <th>Numero</th>
+                <th>Nombre</th>
+                <th>Localidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(departamento of departamentos; track departamento){
+            <tr>
+                <td>{{departamento.numero}}</td>
+                <td>{{departamento.nombre}}</td>
+                <td>{{departamento.localidad}}</td>
+                <td>
+                    <a [routerLink]="['/detalles', departamento.numero,departamento.nombre,departamento.localidad]"
+                        class="btn btn-info">Detalles</a>
+                </td>
+                <td>
+                    <a [routerLink]="['/update', departamento.numero]" class="btn btn-warning">Actualizar</a>
+                </td>
+                <td>
+                    <button (click)="deleteDepartamento(departamento.numero)">Delete</button>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    }
+</div>

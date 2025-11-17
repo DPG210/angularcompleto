@@ -7,6 +7,7 @@ import { routes } from './app.routes';
 import { ServiceAlumnos } from './services/service.alumnos';
 import { ServiceEmpleados } from './services/service.empleados';
 import { ServiceFicheros } from './services/service.ficheros';
+import { ServiceDepartamentos } from './services/service.departamentos';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,6 +18,7 @@ export const appConfig: ApplicationConfig = {
     ServiceEquipos,
     ServiceAlumnos,
     ServiceEmpleados,
-    ServiceFicheros
+    ServiceFicheros,
+    ServiceDepartamentos
   ]
 };
